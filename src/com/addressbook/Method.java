@@ -5,19 +5,15 @@ import java.util.*;
 public class Method {
     static Scanner sc = new Scanner(System.in);
 
-    //HashSet<PersonDetails> book ;
-
     HashMap<String, HashSet<PersonDetails>> bookMap = new HashMap<String, HashSet<PersonDetails>>();
 
     // Add Record Details to the addressBook.
     public void addRecord() {
         System.out.println("Enter the Name of Address Book to add record: ");
         String name = sc.next();
-        boolean flag = true;
 
         for (Map.Entry<String, HashSet<PersonDetails>> m : bookMap.entrySet()) { //iterate over hashmap
-            if (m.getKey().equals(name)) {//check for key
-
+            if (m.getKey().equals(name)) {                                        //check for key
 
                 System.out.println("Enter the record details:");
                 System.out.println("Enter First Name");
@@ -37,7 +33,6 @@ public class Method {
                 System.out.println("Enter Zip code");
                 String zip = sc.next();
 
-                //HashSet<PersonDetails> bookname = new HashSet<PersonDetails>();
                 HashSet<PersonDetails> value = m.getValue();
                 PersonDetails b = new PersonDetails(firstName, lastName, address, city, state, email, phoneNumber, zip);
                 boolean add = value.add(b);
@@ -45,13 +40,9 @@ public class Method {
                     System.out.println("details already exists,try new");
                 else
                     bookMap.put(m.getKey(), value);
-                //bookname.add(b);
-
-                flag = true;
-            }
+            }else
+                System.out.println("addressbook not found,u need to create it");
         }
-        if (flag = false)
-            System.out.println("addressBook not found");
     }
 
     // Edit record Detail By Firstname
@@ -125,11 +116,8 @@ public class Method {
                             record.setZip(zip);
                             break;
                         }
-
-                        case 9: {
+                        case 9:
                             return;
-                        }
-
                     }
                     flag = 1;
                     break;
@@ -237,13 +225,11 @@ public class Method {
                     System.out.println(value);
                     flag = true;
                 }
-
             }
         }
         if (flag == false) {
             System.out.println("record not found");
         }
-
     }
 
     //Search person by state

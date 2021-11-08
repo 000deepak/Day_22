@@ -24,8 +24,8 @@ class AddressBook {
                     + "2] Add entry\n"
                     + "3] Edit entry\n"
                     + "4] Delete Entry\n"
-                    + "5] Search Record from a city\n"
-                    + "6] Search Record from a State\n"
+                    + "5] Search Record from a state\n"
+                    + "6] Search Record from a city\n"
                     + "7] Display all addressBooks with details\n"
                     + "8] Display single addressBook details\n"
                     + "9] Exit\n");
@@ -38,37 +38,27 @@ class AddressBook {
                 case 2:
                     method.addRecord();
                     break;
-
                 case 3:
                     method.editRecord();
                     break;
-
                 case 4:
                     method.deleteRecord();
                     break;
-
-                case 5: {
+                case 5:
                     method.searchPersonByState();
                     break;
-                }
-
                 case 6:
                     method.searchPersonByCity();
                     break;
-
                 case 7:
                     method.displayAll();
                     break;
-
                 case 8:
                     method.displayBook();
                     break;
-
                 case 9:
                     flag = false;
                     break;
-
-
             }
         }
     }
