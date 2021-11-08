@@ -1,6 +1,9 @@
 package com.addressbook;
 
-public class PersonDetails {
+import java.util.Objects;
+
+public class  PersonDetails {
+
     private String firstName, lastName, address, city, state, email, zip, phoneNumber;
 
     public PersonDetails(String firstName, String lastName, String address, String city, String state,
@@ -14,10 +17,6 @@ public class PersonDetails {
         setEmail(email);
         setPhoneNumber(phoneNumber);
         setZip(zip);
-    }
-
-    public PersonDetails() {
-
     }
 
     public String getFirstName() {
@@ -84,9 +83,23 @@ public class PersonDetails {
         this.phoneNumber = phoneNumber;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        //if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PersonDetails that = (PersonDetails) o;
+        return firstName.equals(that.firstName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName);
+    }
+
     @Override
     public String toString() {
-        return "cPerson [firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phoneNumber + ", city=" + city
+        return "PersonDetails [firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phoneNumber + ", city=" + city
                 + ", state=" + state + ", zip=" + zip + ", email=" + email + "]";
     }
 }
